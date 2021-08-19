@@ -39,11 +39,16 @@ public class SpringBootJpaExampleApplication {
 
         // update thee user by id
 
-        Optional<User> optional = userRepository.findById(3);
+        /*Optional<User> optional = userRepository.findById(3);
         User user = optional.get();
         user.setName("Hreday Sagar");
         User result = userRepository.save(user);
-        System.out.println(result);
+        System.out.println(result);*/
+
+        Iterable<User> userIterable = userRepository.findAll();
+        userIterable.forEach(user-> {
+            System.out.println(user);
+        });
 
 
     }
