@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import java.util.List;
+import java.util.Optional;
 
 @SpringBootApplication
 public class SpringBootJpaExampleApplication {
@@ -17,7 +18,7 @@ public class SpringBootJpaExampleApplication {
         UserRepository userRepository = context.getBean(UserRepository.class);
 
 
-        User user1 = new User();
+/*        User user1 = new User();
         user1.setName("hasan");
         user1.setCity("Dhaka");
         user1.setStatus("I am learning spring boot");
@@ -34,7 +35,15 @@ public class SpringBootJpaExampleApplication {
             System.out.println(user);
         });
 
-        System.out.println("done");
+        System.out.println("done");*/
+
+        // update thee user by id
+
+        Optional<User> optional = userRepository.findById(3);
+        User user = optional.get();
+        user.setName("Hreday Sagar");
+        User result = userRepository.save(user);
+        System.out.println(result);
 
 
     }
