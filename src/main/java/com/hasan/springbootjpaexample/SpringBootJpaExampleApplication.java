@@ -45,10 +45,21 @@ public class SpringBootJpaExampleApplication {
         User result = userRepository.save(user);
         System.out.println(result);*/
 
+        /*
+        // get all user
         Iterable<User> userIterable = userRepository.findAll();
         userIterable.forEach(user-> {
             System.out.println(user);
-        });
+        });*/
+
+        // delete by id
+        /*userRepository.deleteById(4);
+        System.out.println("delete");*/
+
+        // delete all user
+        Iterable<User> allUsers = userRepository.findAll();
+        allUsers.forEach(user-> System.out.println(user));
+        userRepository.deleteAll(allUsers);
 
 
     }
