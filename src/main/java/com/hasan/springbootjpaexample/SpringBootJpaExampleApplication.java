@@ -18,13 +18,13 @@ public class SpringBootJpaExampleApplication {
         UserRepository userRepository = context.getBean(UserRepository.class);
 
 
-/*        User user1 = new User();
-        user1.setName("hasan");
+   /*     User user1 = new User();
+        user1.setName("Asif");
         user1.setCity("Dhaka");
         user1.setStatus("I am learning spring boot");
 
         User user2 = new User();
-        user2.setName("Hreday");
+        user2.setName("Maruf");
         user2.setCity("Faridpur");
         user2.setStatus("I am learning Flutter");
 
@@ -35,7 +35,9 @@ public class SpringBootJpaExampleApplication {
             System.out.println(user);
         });
 
-        System.out.println("done");*/
+        System.out.println("done");
+
+    */
 
         // update thee user by id
 
@@ -57,9 +59,15 @@ public class SpringBootJpaExampleApplication {
         System.out.println("delete");*/
 
         // delete all user
-        Iterable<User> allUsers = userRepository.findAll();
+        /*Iterable<User> allUsers = userRepository.findAll();
         allUsers.forEach(user-> System.out.println(user));
-        userRepository.deleteAll(allUsers);
+        userRepository.deleteAll(allUsers);*/
+
+        List<User> userList = userRepository.findByName("hasan");
+
+        userList.forEach(user -> {
+            System.out.println(user);
+        });
 
 
     }
