@@ -63,11 +63,32 @@ public class SpringBootJpaExampleApplication {
         allUsers.forEach(user-> System.out.println(user));
         userRepository.deleteAll(allUsers);*/
 
-        List<User> userList = userRepository.findByName("hasan");
+        // derived query
+        /*List<User> userList = userRepository.findByName("hasan");
 
         userList.forEach(user -> {
             System.out.println(user);
-        });
+        });*/
+
+        // JPQL query
+        System.out.println("\n-------------------JPQL query-----------------");
+        List<User> allUser = userRepository.getAllUser();
+        allUser.forEach(user -> System.out.println(user));
+
+        System.out.println("-------------------------------------");
+
+        List<User> getUsersByName = userRepository.getUserByName("hasan");
+        getUsersByName.forEach(user -> System.out.println(user));
+
+
+        System.out.println("-------------------------------------");
+        List<User> getUsersByNameAndCity = userRepository.getUserByNameAndCity("asif","dhaka");
+        getUsersByNameAndCity.forEach(user -> System.out.println(user));
+
+        // native query
+        System.out.println("\n-------------Native Query ----------------------");
+        List<User> users = userRepository.getUsers();
+        users.forEach(user -> System.out.println(user));
 
 
     }
